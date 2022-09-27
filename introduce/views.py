@@ -4,10 +4,15 @@ from .models import AccessLog
 # Create your views here.
 def introduce(request):
     if request.method == 'GET':
-        user = request.user
-        access = AccessLog()
-        access.author = user
-        access.location = 'introduce'
-        access.created_at = AccessLog.created_at
-        access.save()
+        # case 1
+        """
+        access_log = AccessLog()
+        access_log.location = "introduce"
+        access_log.save()
+        """
+        # case 2
+        AccessLog.objects.create(
+            location = "introduce"
+        )
+
         return render(request, 'introduce/introduce.html')
