@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import AccessLog
 
+
 # Create your views here.
 def introduce(request):
     if request.method == 'GET':
@@ -12,7 +13,7 @@ def introduce(request):
         """
         # case 2
         AccessLog.objects.create(
-            location = "introduce"
+            location="introduce"
         )
 
         return render(request, 'introduce/introduce.html')
